@@ -27,6 +27,7 @@ public class ActivityRepositoryTest {
 	public ActivityRepositoryTest() {
 		super();
 		// TODO Auto-generated constructor stub
+		
 	}
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
