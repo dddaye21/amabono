@@ -1,47 +1,50 @@
 package com.intensive.sk.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
 
 @Entity
 @Data
-public class Activity {
+public class Activity extends BaseEntity {
 	
 	@Id
-	private int id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long activityId;	
+	private String name;
 	
-	private String loginId;
-	private String password;
-	private String username;
-	private Interests interests;
-	private Location location;
-	private Major major;
-	private MemberType memberType;
+	@Column(columnDefinition ="LONGTEXT")
+	private String detail;
+	@Enumerated(EnumType.STRING)
+	private ActivityStatus activityStatus;	
+	@Enumerated(EnumType.STRING)
+	private ActivityCategoryType activityCategoryType;
+	private ApplicationPeriod applicationPeriod;
+	private ServicePeriod servicePeriod;
 	
-	public Activity() {
-		super();
-		this.id = id;
-		this.interests = interests;
-		this.location = location;
-		this.major = major;
-		this.loginId = loginId;
-		this.password = password;
-		this.memberType = memberType;
-		this.username = username;
+	public Activity(String name) {
+		this.name = name;
 	}
 
-	public Activity(int id, Interests interests, Location location, Major major, String loginId, String password,
-			MemberType memberType, String username) {
+	public Activity(String name, String detail, ActivityStatus activityStatus,
+			ActivityCategoryType activityCategoryType, ApplicationPeriod applicationPeriod,
+			ServicePeriod servicePeriod) {
 		super();
-		this.id = id;
-		this.interests = interests;
-		this.location = location;
-		this.major = major;
-		this.loginId = loginId;
-		this.password = password;
-		this.memberType = memberType;
-		this.username = username;
+		
+		this.name = name;
+		this.detail = detail;
+		this.activityStatus = activityStatus;
+		this.activityCategoryType = activityCategoryType;
+		this.applicationPeriod = applicationPeriod;
+		this.servicePeriod = servicePeriod;
 	}
+	
+	
+
 }
