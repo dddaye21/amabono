@@ -13,8 +13,6 @@ steps:
   - 'set'
   - 'image'
   - 'deployment/amabono-member'
-  - '-n'
-  - 'mall'
   - 'amabono-member-sha256=gcr.io/golden-manifest-237210/amabono-member:$REVISION_ID'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-east1-b'
