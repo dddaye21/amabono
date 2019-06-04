@@ -30,26 +30,26 @@ public class Member {
 	public Member() {
 		super();
 		this.id = id;
+		this.loginId = loginId;
+		this.password = password;
+		this.username = username;
 		this.interests = interests;
 		this.location = location;
 		this.major = major;
-		this.loginId = loginId;
-		this.password = password;
 		this.memberType = memberType;
-		this.username = username;
 	}
 	
-	public Member(int id, String name, ActivityStatus status, String detail, Date activityStartDate,
-			Date activityEndDate, Date applicationStartDate, Date applicationEndDate,
-			ActivityCategory activityCategory) {
+	public Member(int id, String loginId, String password, String username, Interests interests, Location location,
+			Major major, MemberType memberType) {
 		super();
 		this.id = id;
+		this.loginId = loginId;
+		this.password = password;
+		this.username = username;
 		this.interests = interests;
 		this.location = location;
 		this.major = major;
-		this.loginId = loginId;
-		this.password = password;
 		this.memberType = memberType;
-		this.username = username;
 	}
+
 }

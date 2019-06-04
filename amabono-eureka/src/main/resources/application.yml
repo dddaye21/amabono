@@ -1,10 +1,23 @@
 server:
-  port: 8761
+  port: ${PORT:8761}
   
 spring:
   application:
     name: amabono-eureka
 
+     
 eureka:
-   instance:
-     hostname: localhost
+  instance:
+    instance-id: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+    hostname: ${vcap.application.uris[0]}
+    prefer-ip-address: false
+#    ip-address: ${CF_INSTANCE_IP}
+    non-secure-port: 80
+    lease-renewal-interval-in-seconds: 15
+    lease-expiration-duration-in-seconds: 45
+  client:
+    region: default
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/     
