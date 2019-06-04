@@ -31,6 +31,10 @@ public class Activity  {
 	private LocalDate applicationEndDate;
 	private LocalDate serviceStartDate;
 	private LocalDate serviceEndDate;
+	
+	public Activity() {
+		
+	}
 
 
 
