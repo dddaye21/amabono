@@ -10,6 +10,7 @@ public interface ActivityService {
 	int deleteActivity(Long activityId);
 	List <Activity> getActivityList();
 	Activity getActivity(Long id);
+	void updateActivity(Activity activity);
 	
 	
 	

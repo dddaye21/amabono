@@ -50,5 +50,8 @@ public class ActivityServiceImpl implements ActivityService {
 		}else return null;
 		
 	}
+	public void updateActivity(Activity activity) {
+		
+	}
 
 }
