@@ -52,7 +52,4 @@ public class Member {
 		this.memberType = memberType;
 		this.username = username;
 	}
-	
-	
-	
 }
