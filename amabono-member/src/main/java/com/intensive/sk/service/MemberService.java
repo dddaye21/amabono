@@ -23,7 +23,7 @@ public class MemberService {
 	
 	public Member getMemberById(int id) {
 		
-		Member member = memberRepository.getOne(id);
+		Member member = memberRepository.findById(id);
 		
 		
 		return member;

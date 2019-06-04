@@ -1,40 +1,55 @@
 package com.intensive.sk.entity;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import lombok.Data;
 
 @Data
-public class Activity {
-	private int id;
-	private String loginId;
-	private String password;
-	private String username;
-	private Interests interests;
-	private Location location;
-	private Major major;
-	private MemberType memberType;
+public class Activity  {
+	
+	private Long activityId;	
+	private String name;
+	
+	private String detail;
+	private ActivityStatus activityStatus;	
+	private ActivityCategoryType activityCategoryType;
+	private LocalDate applicationStartDate;
+	private LocalDate applicationEndDate;
+	private LocalDate serviceStartDate;
+	private LocalDate serviceEndDate;
 	
 	public Activity() {
-		super();
-		this.id = id;
-		this.interests = interests;
-		this.location = location;
-		this.major = major;
-		this.loginId = loginId;
-		this.password = password;
-		this.memberType = memberType;
-		this.username = username;
+		
+		
 	}
 
-	public Activity(int id, Interests interests, Location location, Major major, String loginId, String password,
-			MemberType memberType, String username) {
+
+	public Activity( String name, String detail, ActivityStatus activityStatus,
+			ActivityCategoryType activityCategoryType, LocalDate applicationStartDate, LocalDate applicationEndDate,
+			LocalDate serviceStartDate, LocalDate serviceEndDate) {
 		super();
-		this.id = id;
-		this.interests = interests;
-		this.location = location;
-		this.major = major;
-		this.loginId = loginId;
-		this.password = password;
-		this.memberType = memberType;
-		this.username = username;
+		this.name = name;
+		this.detail = detail;
+		this.activityStatus = activityStatus;
+		this.activityCategoryType = activityCategoryType;
+		this.applicationStartDate = applicationStartDate;
+		this.applicationEndDate = applicationEndDate;
+		this.serviceStartDate = serviceStartDate;
+		this.serviceEndDate = serviceEndDate;
 	}
+	
+	
+
+
+	
+	
+
 }

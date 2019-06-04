@@ -18,7 +18,7 @@ import com.intensive.sk.service.ActivityManagementService;
 public class ActivityManagementController {
 	
 	@Autowired
-	ActivityManagementService service;
+	private ActivityManagementService service;
 	
 	@GetMapping("/getActivityManagement")
 	public ActivityManagement activityManagement(int id) {
@@ -35,9 +35,9 @@ public class ActivityManagementController {
 	}
 	
 	@PostMapping("/apply")
-	public void apply(Activity activity, Member member) {
+	public void apply(long activityId, int memberId) {
 		
-		service.apply(member, activity);
+		service.apply(memberId, activityId);
 		
 	}
 	
@@ -45,5 +45,21 @@ public class ActivityManagementController {
 	public void statusChange(int id, Status status) {
 		service.statusChange(id, status);
 		
+	}
+	
+	@GetMapping("/getActivity")
+	public String getActivities(Long activityId){
+		
+		String results = service.getActivity(activityId);
+		
+		return results;
+	}
+	
+	@GetMapping("/getMember")
+	public String getMember(int memberId){
+		
+		String results = service.getMember(memberId);
+		
+		return results;
 	}
 }

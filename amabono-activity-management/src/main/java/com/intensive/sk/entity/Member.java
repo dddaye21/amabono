@@ -2,46 +2,54 @@ package com.intensive.sk.entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+
 import lombok.Data;
 
 @Data
+@Entity(name="member")
+@SequenceGenerator(name="seq", initialValue=1, allocationSize=1)
 public class Member {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
 	private int id;
-	private String name;
-	private ActivityStatus status;
-	private String detail;
-	private Date activityStartDate;
-	private Date activityEndDate;
-	private Date applicationStartDate;
-	private Date applicationEndDate;
-	private ActivityCategory activityCategory;
+	
+	private String loginId;
+	private String password;
+	private String username;
+	private Interests interests;
+	private Location location;
+	private Major major;
+	private MemberType memberType;
 	
 	public Member() {
 		super();
 		this.id = id;
-		this.name = name;
-		this.status = status;
-		this.detail = detail;
-		this.activityStartDate = activityStartDate;
-		this.activityEndDate = activityEndDate;
-		this.applicationStartDate = applicationStartDate;
-		this.applicationEndDate = applicationEndDate;
-		this.activityCategory = activityCategory;
+		this.loginId = loginId;
+		this.password = password;
+		this.username = username;
+		this.interests = interests;
+		this.location = location;
+		this.major = major;
+		this.memberType = memberType;
 	}
-
 	
-	public Member(int id, String name, ActivityStatus status, String detail, Date activityStartDate,
-			Date activityEndDate, Date applicationStartDate, Date applicationEndDate,
-			ActivityCategory activityCategory) {
+	public Member(int id, String loginId, String password, String username, Interests interests, Location location,
+			Major major, MemberType memberType) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.status = status;
-		this.detail = detail;
-		this.activityStartDate = activityStartDate;
-		this.activityEndDate = activityEndDate;
-		this.applicationStartDate = applicationStartDate;
-		this.applicationEndDate = applicationEndDate;
-		this.activityCategory = activityCategory;
+		this.loginId = loginId;
+		this.password = password;
+		this.username = username;
+		this.interests = interests;
+		this.location = location;
+		this.major = major;
+		this.memberType = memberType;
 	}
+
 }
