@@ -39,6 +39,14 @@ public class ReviewService {
 		return (List<Review>) reviewRepository.findAll();
 	}
 	
+	public void modifyReview(Review review) {
+		
+		Review target = reviewRepository.findById(review.getId());
+		target.setContents(review.getContents());
+		target.setScore(review.getScore());
+		reviewRepository.save(target);
+	}
+	
 	
 
 	
