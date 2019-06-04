@@ -35,6 +35,7 @@ public class ActivityController {
 	public void delete(Long id) {
 		activityService.deleteActivity(id);
 		
+		
 	}
 	
 	@PostMapping("/modifyActivity")
