@@ -3,17 +3,24 @@ package com.intensive.sk.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.intensive.sk.entity.Member;
+import com.intensive.sk.service.MemberService;
 
 @RestController
 public class MemberController {
 	
+	@Autowired
+	private MemberService memberService;
+	
 	@PostMapping("/createMember")
 	public void createMember(Member member) {
+		
+		memberService.createMember(member);
 		
 	}
 	

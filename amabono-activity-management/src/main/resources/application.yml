@@ -2,6 +2,8 @@ server:
   port: 8082
   
 spring:
+  application:
+    name: amabono-activity-management
   datasource:
     url: jdbc:mysql://35.229.145.166/am
     driver-class-name: com.mysql.cj.jdbc.Driver
