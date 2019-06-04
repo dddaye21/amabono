@@ -3,25 +3,30 @@ package com.intensive.sk.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.intensive.sk.entity.Activity;
+import com.intensive.sk.service.ActivityService;
 
 @RestController
 public class ActivityController {
+	
+	@Autowired
+	ActivityService activityService;
 
 	@GetMapping("/getAllActivities")
 	public List<Activity> activities(){
-		List<Activity> results = new ArrayList<>();
+		List<Activity> results = activityService.getActivityList();
 		
 		return results;
 	}
 	
 	@GetMapping("/getActivity")
-	public Activity activity(int id) {
-		Activity result = new Activity();
+	public Activity activity(Long id) {
+		Activity result = activityService.getActivity(id);
 		
 		return result;
 	}
