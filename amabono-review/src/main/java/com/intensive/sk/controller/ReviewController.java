@@ -6,17 +6,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.intensive.sk.entity.Review;
-import com.intensive.sk.service.ReviewService;
+import com.intensive.sk.sevice.ReviewService;
 
 @RestController
 public class ReviewController {
 	
 	@Autowired
-	private ReviewService reviewService;
+	ReviewService reviewService;
 
 	@PostMapping("/deleteReview")
 	public void delete(Review review) {
-		reviewService.delete(review);
 		
 	}
 	
@@ -27,6 +26,8 @@ public class ReviewController {
 	
 	@PostMapping("/registerReview")
 	public void register(Review review) {
+		System.out.println(review);
+		reviewService.createReview(review);
 		
 	}
 	

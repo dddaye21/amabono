@@ -1,11 +1,11 @@
 package com.intensive.sk.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.intensive.sk.entity.Review;
 
-public interface ReviewRepository extends JpaRepository<Review, Integer> {
+public interface ReviewRepository extends PagingAndSortingRepository<Review, Long> {
+	
+	Review findById(long id);
 
 }
