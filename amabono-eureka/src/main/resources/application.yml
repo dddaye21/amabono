@@ -5,6 +5,7 @@ spring:
   application:
     name: amabono-eureka
 
+
      
 eureka:
   instance:
