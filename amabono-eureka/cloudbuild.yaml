@@ -8,5 +8,13 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/golden-manifest-237210/amabono-eureka:$REVISION_ID'] 
   dir: 'amabono-eureka'
-  
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'set'
+  - 'image'
+  - 'deployment/amabono-eureka'
+  - 'amabono-eureka-sha256=gcr.io/golden-manifest-237210/amabono-eureka:$REVISION_ID'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-east1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'   
   
