@@ -32,17 +32,21 @@ public class ActivityController {
 	}
 	
 	@PostMapping("/deleteActivity")
-	public void delete(Activity activity) {
+	public void delete(Long id) {
+		activityService.deleteActivity(id);
 		
 	}
 	
 	@PostMapping("/modifyActivity")
 	public void modify(Activity activity) {
+		activityService.updateActivity(activity);
 		
 	}
 	
 	@PostMapping("/registerActivity")
 	public void register(Activity activity) {
+		
+		activityService.createActivity(activity);
 		
 	}
 }

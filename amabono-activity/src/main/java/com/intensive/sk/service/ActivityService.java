@@ -11,6 +11,7 @@ public interface ActivityService {
 	List <Activity> getActivityList();
 	Activity getActivity(Long id);
 	void updateActivity(Activity activity);
+	void createActivity(Activity activity);
 	
 	
 	
