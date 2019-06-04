@@ -24,6 +24,11 @@ import com.intensive.sk.repository.ActivityRepository;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ActivityRepositoryTest {
+	public ActivityRepositoryTest() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
