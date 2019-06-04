@@ -24,36 +24,36 @@ import com.intensive.sk.repository.ActivityRepository;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ActivityRepositoryTest {
-	public ActivityRepositoryTest() {
-		super();
-		// TODO Auto-generated constructor stub
-		
-	}
-
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
-	@Autowired
-	private ActivityRepository activityRepository;
-	
-	@Test
-	public void activityTest(){
-		
-		String desc ="We have over 10 years of experience in organizing medical electives abroad for medical students and nursing students, as well as medical mission trips for qualified healthcare practitioners. If you’re an aspiring medical professional, we also offer medical volunteer opportunities abroad for pre med, pre health and pre nursing students";
-		
-		Activity activity1 = new Activity("name1", desc, ActivityStatus.TEMP_SAVED,
-				ActivityCategoryType.MED_HEALTH, new ApplicationPeriod(LocalDate.of(2019,6,1),LocalDate.of(2019,6,30)) ,
-				new ServicePeriod(LocalDate.of(2019,7,1),LocalDate.of(2019,8,31)) );
-		activity1=activityRepository.save(activity1);
-		
-		Optional <Activity> activityResult = activityRepository.findById(activity1.getActivityId());
-		Assert.assertNotNull(activityResult.get().getName());
-		Assert.assertNotNull(activityResult.get().getDetail());
-		logger.debug("{}",activityResult.get().toString());
-		
-		
-		
-		
-		
-	}
+//	public ActivityRepositoryTest() {
+//		super();
+//		// TODO Auto-generated constructor stub
+//		
+//	}
+//
+//	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+//	
+//	@Autowired
+//	private ActivityRepository activityRepository;
+//	
+//	@Test
+//	public void activityTest(){
+//		
+//		String desc ="We have over 10 years of experience in organizing medical electives abroad for medical students and nursing students, as well as medical mission trips for qualified healthcare practitioners. If you’re an aspiring medical professional, we also offer medical volunteer opportunities abroad for pre med, pre health and pre nursing students";
+//		
+//		Activity activity1 = new Activity("name1", desc, ActivityStatus.TEMP_SAVED,
+//				ActivityCategoryType.MED_HEALTH, new ApplicationPeriod(LocalDate.of(2019,6,1),LocalDate.of(2019,6,30)) ,
+//				new ServicePeriod(LocalDate.of(2019,7,1),LocalDate.of(2019,8,31)) );
+//		activity1=activityRepository.save(activity1);
+//		
+//		Optional <Activity> activityResult = activityRepository.findById(activity1.getActivityId());
+//		Assert.assertNotNull(activityResult.get().getName());
+//		Assert.assertNotNull(activityResult.get().getDetail());
+//		logger.debug("{}",activityResult.get().toString());
+//		
+//		
+//		
+//		
+//		
+//	}
 
 }
