@@ -1,5 +1,7 @@
 package com.intensive.sk.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,7 +14,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Activity extends BaseEntity {
+public class Activity  {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -25,25 +27,31 @@ public class Activity extends BaseEntity {
 	private ActivityStatus activityStatus;	
 	@Enumerated(EnumType.STRING)
 	private ActivityCategoryType activityCategoryType;
-	private ApplicationPeriod applicationPeriod;
-	private ServicePeriod servicePeriod;
-	
-	public Activity(String name) {
-		this.name = name;
-	}
+	private LocalDate applicationStartDate;
+	private LocalDate applicationEndDate;
+	private LocalDate serviceStartDate;
+	private LocalDate serviceEndDate;
 
-	public Activity(String name, String detail, ActivityStatus activityStatus,
-			ActivityCategoryType activityCategoryType, ApplicationPeriod applicationPeriod,
-			ServicePeriod servicePeriod) {
+
+
+
+	public Activity( String name, String detail, ActivityStatus activityStatus,
+			ActivityCategoryType activityCategoryType, LocalDate applicationStartDate, LocalDate applicationEndDate,
+			LocalDate serviceStartDate, LocalDate serviceEndDate) {
 		super();
-		
 		this.name = name;
 		this.detail = detail;
 		this.activityStatus = activityStatus;
 		this.activityCategoryType = activityCategoryType;
-		this.applicationPeriod = applicationPeriod;
-		this.servicePeriod = servicePeriod;
+		this.applicationStartDate = applicationStartDate;
+		this.applicationEndDate = applicationEndDate;
+		this.serviceStartDate = serviceStartDate;
+		this.serviceEndDate = serviceEndDate;
 	}
+	
+	
+
+
 	
 	
 

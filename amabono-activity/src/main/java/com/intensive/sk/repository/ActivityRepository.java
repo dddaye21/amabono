@@ -12,7 +12,6 @@ import com.intensive.sk.entity.ActivityCategoryType;
 
 public interface ActivityRepository extends PagingAndSortingRepository<Activity, Long> {
 
-
 	List <Activity> findByNameContaining(String name);
 	Optional <Activity> findByActivityCategoryType(@Param("activityCategoryType") ActivityCategoryType activityCategoryType);
 

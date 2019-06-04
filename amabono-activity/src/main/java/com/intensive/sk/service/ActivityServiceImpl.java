@@ -51,7 +51,25 @@ public class ActivityServiceImpl implements ActivityService {
 		
 	}
 	public void updateActivity(Activity activity) {
+		Optional <Activity> activityResult = activityRepository.findById(activity.getActivityId());
+		if(activityResult.isPresent()) {
+			Activity targetActivity = activityResult.get();
+			//임시저장 상태의 활동만 수정 가능
+			if(activity.getActivityStatus() == ActivityStatus.TEMP_SAVED) {
+				targetActivity.setActivityCategoryType(activity.getActivityCategoryType());
+				targetActivity.setActivityStatus(activity.getActivityStatus());
+				targetActivity.setName(activity.getName());
+				targetActivity.setDetail(activity.getDetail());
+				activityRepository.save(targetActivity);
+			}				
+			
+		}		
 		
+	}
+	
+	public void createActivity(Activity activity) {
+		activity.setActivityStatus(ActivityStatus.TEMP_SAVED);
+		activityRepository.save(activity);
 	}
 
 }
