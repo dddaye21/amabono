@@ -3,8 +3,8 @@ steps:
   args: ['install']
   dir: 'amabono-activity'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/golden-manifest-237210/anabono-activity:$REVISION_ID', '.'] 
-  dir: 'anabono-activity'
+  args: ['build', '-t', 'gcr.io/golden-manifest-237210/amabono-activity:$REVISION_ID', '.'] 
+  dir: 'amabono-activity'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/golden-manifest-237210/anabono-activity:$REVISION_ID'] 
-  dir: 'anabono-activity'
+  args: ['push', 'gcr.io/golden-manifest-237210/amabono-activity:$REVISION_ID'] 
+  dir: 'amabono-activity'
