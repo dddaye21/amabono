@@ -1,5 +1,7 @@
 package com.intensive.sk.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,11 +19,14 @@ public class ReviewController {
 	@PostMapping("/deleteReview")
 	public void delete(Review review) {
 		
+		reviewService.deleteReview(review);
+		
 	}
 	
 	@PostMapping("/modifyReview")
 	public void modify(Review review) {
 		
+		reviewService.modifyReview(review);
 	}
 	
 	@PostMapping("/registerReview")
@@ -32,9 +37,16 @@ public class ReviewController {
 	}
 	
 	@GetMapping("/getReview")
-	public Review review(int id) {
-		Review result = new Review();
+	public Review review(long id) {
+
+		Review review = reviewService.getReviewByid(id);
+		return review;
+	}
+	
+	
+	public List<Review> reviews(){
 		
-		return result;
+		return reviewService.getAllReview();
+		
 	}
 }

@@ -47,6 +47,8 @@ public class MemberService {
 		
 		
 		memberRepository.save(target);
+		
+		
 	}
 	
 	public List<Member> getAllMember(){

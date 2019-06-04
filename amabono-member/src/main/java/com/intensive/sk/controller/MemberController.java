@@ -25,8 +25,9 @@ public class MemberController {
 	}
 	
 	@PostMapping("/deleteMember")
-	public void deleteMember() {
+	public void deleteMember(Member member) {
 		
+		memberService.deleteMember(member);
 	}
 	
 	@PostMapping("/login")
@@ -35,23 +36,24 @@ public class MemberController {
 	}
 	
 	@GetMapping("/member")
-	public Member member(Member member) {
+	public Member member(int id) {
 		
-		Member result = new Member();
+		Member result = memberService.getMemberById(id);
+		
 		
 		return result;
 	}
 	
 	@PostMapping("/memberInfoChange")
 	public Member memberInfoChange(Member member) {
-		Member result = new Member();
-		
+		memberService.modifyMember(member);
+		Member result = memberService.getMemberById(member.getId());
 		return result;
 	}
 	
 	@GetMapping("/allMembers")
 	public List<Member> members(){
-		List<Member> results = new ArrayList<>();
+		List<Member> results = memberService.getAllMember();
 		
 		return results;
 	}
