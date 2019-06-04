@@ -1,0 +1,18 @@
+server:
+  port: 8080
+  
+spring:
+  datasource:
+    url: jdbc:mysql://35.229.145.166/at
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: at
+    password: at
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+  redis:
+    host: 35.221.170.228
+    port: 6379
+    password: sDS+dY2p
