@@ -26,4 +26,4 @@ eureka:
     registry-fetch-interval-seconds: 30
     register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://35.221.219.98:8761/eureka/
