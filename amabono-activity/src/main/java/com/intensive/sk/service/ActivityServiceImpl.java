@@ -55,10 +55,11 @@ public class ActivityServiceImpl implements ActivityService {
 			Activity targetActivity = activityResult.get();
 			//임시저장 상태의 활동만 수정 가능
 			if(targetActivity.getActivityStatus() == ActivityStatus.TEMP_SAVED) {
-				targetActivity.setActivityCategoryType(activity.getActivityCategoryType());
+				
+				//targetActivity.setActivityCategoryType(activity.getActivityCategoryType());
 				targetActivity.setActivityStatus(activity.getActivityStatus());
-				targetActivity.setName(activity.getName());
-				targetActivity.setDetail(activity.getDetail());
+				//targetActivity.setName(activity.getName());
+				//targetActivity.setDetail(activity.getDetail());
 				activityRepository.save(targetActivity);
 			}				
 			
