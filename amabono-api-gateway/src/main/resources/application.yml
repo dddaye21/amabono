@@ -8,8 +8,10 @@ server:
 zuul:
   ignored-services: '*'
   routes:
-    amabono-activity: /activity/**
-    amabono-member: /member/**
+#    amabono-activity: /activity/**
+    amabono-member: 
+      path: /member/**
+      url: http://35.201.143.36:8081
 
 
 eureka:
@@ -19,4 +21,12 @@ eureka:
     registry-fetch-interval-seconds: 30
     register-with-eureka: true
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/    
+      defaultZone: http://35.221.219.98:8761/eureka/     
+
+ribbon:
+  retryable: true
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  OkToRetryOnAllOperations: true
+  ConnectTimeout: 30000
+  ReadTimeout: 30000 
