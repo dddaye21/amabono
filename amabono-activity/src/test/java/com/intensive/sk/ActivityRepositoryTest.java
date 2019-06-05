@@ -35,8 +35,8 @@ public class ActivityRepositoryTest {
 		
 		Activity activity1 = new Activity("name1", desc, ActivityStatus.TEMP_SAVED,
 				ActivityCategoryType.MED_HEALTH,
-				LocalDate.of(2019,6,1),LocalDate.of(2019,9,30),
-				LocalDate.of(2019,10,1),LocalDate.of(2019,12,31));
+				"2019,6,1","2019,9,30",
+				"(2019,10,1","2019,12,31");
 		activity1=activityRepository.save(activity1);
 		
 		Optional <Activity> activityResult = activityRepository.findById(activity1.getActivityId());

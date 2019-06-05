@@ -1,6 +1,6 @@
 package com.intensive.sk.entity;
 
-import java.time.LocalDate;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Entity
@@ -28,11 +27,10 @@ public class Activity  {
 	private ActivityStatus activityStatus;	
 	@Enumerated(EnumType.STRING)
 	private ActivityCategoryType activityCategoryType;
-	@ApiModelProperty(dataType="java.time.LocalDate")
-	private LocalDate applicationStartDate;
-	private LocalDate applicationEndDate;
-	private LocalDate serviceStartDate;
-	private LocalDate serviceEndDate;
+	private String applicationStartDate;
+	private String applicationEndDate;
+	private String serviceStartDate;
+	private String serviceEndDate;
 	
 	public Activity() {
 		
@@ -42,8 +40,8 @@ public class Activity  {
 
 
 	public Activity( String name, String detail, ActivityStatus activityStatus,
-			ActivityCategoryType activityCategoryType, LocalDate applicationStartDate, LocalDate applicationEndDate,
-			LocalDate serviceStartDate, LocalDate serviceEndDate) {
+			ActivityCategoryType activityCategoryType, String applicationStartDate, String applicationEndDate,
+			String serviceStartDate, String serviceEndDate) {
 		super();
 		this.name = name;
 		this.detail = detail;
