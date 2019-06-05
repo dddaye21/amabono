@@ -31,6 +31,11 @@ public class ActivityController {
 		return result;
 	}
 	
+	@GetMapping("/isApplicable")
+	public Boolean isApplicable(Long activityId) {
+		return activityService.isApplicable(activityId);
+	}
+	
 	@PostMapping("/deleteActivity")
 	public void delete(Long id) {
 		activityService.deleteActivity(id);

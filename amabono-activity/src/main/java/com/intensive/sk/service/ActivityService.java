@@ -12,7 +12,7 @@ public interface ActivityService {
 	Activity getActivity(Long id);
 	void updateActivity(Activity activity);
 	void createActivity(Activity activity);
-	
+	Boolean isApplicable(Long activityId);	
 	
 	
 

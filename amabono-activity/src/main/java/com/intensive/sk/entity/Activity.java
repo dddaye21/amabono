@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Entity
@@ -27,6 +28,7 @@ public class Activity  {
 	private ActivityStatus activityStatus;	
 	@Enumerated(EnumType.STRING)
 	private ActivityCategoryType activityCategoryType;
+	@ApiModelProperty(dataType="java.time.LocalDate")
 	private LocalDate applicationStartDate;
 	private LocalDate applicationEndDate;
 	private LocalDate serviceStartDate;
@@ -36,7 +38,6 @@ public class Activity  {
 		
 		
 	}
-
 
 
 

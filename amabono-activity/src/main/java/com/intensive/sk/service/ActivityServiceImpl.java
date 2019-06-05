@@ -31,8 +31,7 @@ public class ActivityServiceImpl implements ActivityService {
 				return -1;
 			
 		}else 
-			return -1;
-		
+			return -1;		
 		
 	};
 	
@@ -55,7 +54,7 @@ public class ActivityServiceImpl implements ActivityService {
 		if(activityResult.isPresent()) {
 			Activity targetActivity = activityResult.get();
 			//임시저장 상태의 활동만 수정 가능
-			if(activity.getActivityStatus() == ActivityStatus.TEMP_SAVED) {
+			if(targetActivity.getActivityStatus() == ActivityStatus.TEMP_SAVED) {
 				targetActivity.setActivityCategoryType(activity.getActivityCategoryType());
 				targetActivity.setActivityStatus(activity.getActivityStatus());
 				targetActivity.setName(activity.getName());
@@ -70,6 +69,18 @@ public class ActivityServiceImpl implements ActivityService {
 	public void createActivity(Activity activity) {
 		activity.setActivityStatus(ActivityStatus.TEMP_SAVED);
 		activityRepository.save(activity);
+	}
+	
+	public Boolean isApplicable(Long activityId) {
+		Optional <Activity> activityResult = activityRepository.findById(activityId);
+		if(activityResult.isPresent()) {
+			Activity activity = activityResult.get();
+			if(activity.getActivityStatus() == ActivityStatus.APPLYING) {
+				return true;
+			}else return false;		
+			
+		}else return false;
+		
 	}
 
 }
