@@ -43,7 +43,7 @@ public class ReviewController {
 		return review;
 	}
 	
-	
+	@GetMapping("/getAllReview")
 	public List<Review> reviews(){
 		
 		return reviewService.getAllReview();
