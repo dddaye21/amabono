@@ -2,6 +2,8 @@ server:
   port: 8083
   
 spring:
+  application:
+    name: amabono-review
   datasource:
     url: jdbc:mysql://35.229.145.166/rv
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -17,3 +19,11 @@ spring:
     port: 6379
     password: sDS+dY2p
 
+eureka:
+  client:
+    region: default
+    fetch-registry: true
+    registry-fetch-interval-seconds: 30
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://35.221.219.98:8761/eureka/
