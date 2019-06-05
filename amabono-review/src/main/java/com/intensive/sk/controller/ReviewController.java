@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.intensive.sk.entity.Review;
+import com.intensive.sk.entity.Score;
 import com.intensive.sk.sevice.ReviewService;
 
 @RestController
@@ -30,8 +31,11 @@ public class ReviewController {
 	}
 	
 	@PostMapping("/registerReview")
-	public void register(Review review) {
-		System.out.println(review);
+	public void register(int applManagementId, Score score, String contents) {
+		Review review = new Review();
+		review.setApplyManagementId(applManagementId);
+		review.setScore(score);
+		review.setContents(contents);
 		reviewService.createReview(review);
 		
 	}
