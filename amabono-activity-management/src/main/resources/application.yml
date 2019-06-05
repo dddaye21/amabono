@@ -27,3 +27,6 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://35.221.219.98:8761/eureka/
+      
+api:
+  path : http://35.234.14.192:8050      

@@ -3,6 +3,7 @@ package com.intensive.sk.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +25,8 @@ public class ActivityManagementService {
 	@Autowired
 	private RestTemplate restTemplate;
 	
-	private static final String ACTIVITY_URL = "http://35.229.229.219:8080";
-	private static final String MEMBER_URL = "http://35.201.143.36:8081";
+	@Value("${api.path}")	
+	private String URL;
 	
 	public void apply (int memberId, Long activityId) {
 		
@@ -68,16 +69,14 @@ public class ActivityManagementService {
 	
 	public String getActivity(Long activityId){
 		
-		Activity response = restTemplate.getForObject(ACTIVITY_URL + "/getActivity?id=" + activityId, Activity.class); 
-//				restTemplate.exchange(ACTIVITY_URL + "/getAllActivities",HttpMethod.GET, null, new ParameterizedTypeReference<List<Activity>>(){}); 
-//		List<Activity> results = response.getBody();
+		Activity response = restTemplate.getForObject(URL +"/activity"+ "/getActivity?id=" + activityId, Activity.class); 
 
 		return response.getName();
 	}
 	
 	public String getMember(int memberId){
 		
-		Member response = restTemplate.getForObject(MEMBER_URL + "/member?id=" + memberId, Member.class);
+		Member response = restTemplate.getForObject(URL +"/member" + "/member?id=" + memberId, Member.class);
 
 		return response.getUsername();
 	}

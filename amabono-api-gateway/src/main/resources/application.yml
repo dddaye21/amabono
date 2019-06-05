@@ -8,10 +8,18 @@ server:
 zuul:
   ignored-services: '*'
   routes:
-#    amabono-activity: /activity/**
+    amabono-activity: 
+      path: /activity/**
+      url: http://35.229.229.219:8080
     amabono-member: 
       path: /member/**
       url: http://35.201.143.36:8081
+    amabono-activity-management: 
+      path: /activity-management/**
+      url: http://35.221.181.231:8082      
+    amabono-review: 
+      path: /review/**
+      url: http://35.229.192.97:8083      
 
 
 eureka:
