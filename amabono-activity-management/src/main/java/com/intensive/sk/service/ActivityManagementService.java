@@ -36,7 +36,9 @@ public class ActivityManagementService {
 		
 		if(!memberCheck.isEmpty() && !activityCheck.isEmpty()) {
 			activityManagement.setActivityId(activityId);
+			activityManagement.setActivityName(activityCheck);
 			activityManagement.setMemberId(memberId);
+			activityManagement.setMemberName(memberCheck);
 			activityManagement.setStatus(Status.APPLY);
 
 			repository.save(activityManagement);
@@ -45,7 +47,7 @@ public class ActivityManagementService {
 	
 	public ActivityManagement getActivityManagement(int id) {
 		
-	 ActivityManagement am = repository.getOne(id);
+	 ActivityManagement am = repository.findById(id);
 	 
 	 return am;
 	}

@@ -17,6 +17,8 @@ public class Review {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "reviewSeq")
 	private long id;
 	private int applyManagementId;
+	private String memberName;
+	private String activityName;	
 	private Score score;
 	private String contents;
 	
@@ -25,10 +27,12 @@ public class Review {
 	
 	}
 	
-	public Review(long id,int applyManagementId, Score score, String contents) {
+	public Review(long id,int applyManagementId,String memberName, String activityName, Score score, String contents) {
 		super();	
 		this.id = id;
 		this.applyManagementId = applyManagementId;
+		this.memberName = memberName ;
+		this.activityName = activityName;
 		this.score = score;
 		this.contents = contents;
 	}
